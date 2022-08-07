@@ -93,20 +93,3 @@ function showFahrenheit(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
-function currentFahrenheit(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showFahrenheit);
-}
-let linkFahrenheit = document.querySelector("#fahrenheit");
-linkFahrenheit.addEventListener("click", currentFahrenheit);
-function showCelsium(position) {
-  let apiKey = "b68e0598b634d70e6e94258486b5b3c9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeather);
-}
-function currentCelsium(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showCelsium);
-}
-let linkCelsium = document.querySelector("#celsium");
-linkCelsium.addEventListener("click", currentCelsium);
