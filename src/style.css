@@ -11,6 +11,11 @@ button:hover {
   cursor: pointer;
   color: aliceblue;
 }
+small {
+  position: fixed;
+  left: 60px;
+  top: 411px;
+}
 .wrapper {
   width: 540px;
   position: fixed;
