@@ -1,4 +1,9 @@
-#searchButton {
+small {
+  position: fixed;
+  left: 268px;
+  top: 415px;
+}
+button {
   margin: 0;
   color: white;
   background-color: #4d799d;
@@ -6,17 +11,13 @@
   padding: 2px 10px;
   border: 0.2px solid white;
   border-radius: 5px;
-}
-#searchButton:active {
-  cursor: pointer;
-  color: aliceblue;
   transition: all 150ms ease-in-out;
 }
-small {
-  position: fixed;
-  left: 268px;
-  top: 415px;
+button:hover {
+  cursor: pointer;
+  color: aliceblue;
 }
+
 .wrapper {
   width: 540px;
   position: fixed;
