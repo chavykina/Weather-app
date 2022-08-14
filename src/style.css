@@ -15,7 +15,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-  color: aliceblue;
 }
 
 .wrapper {
