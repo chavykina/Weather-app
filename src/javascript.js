@@ -35,6 +35,10 @@ function displayWeather(response) {
     response.data.main.temp
   );
   document.querySelector(".main1").innerHTML = response.data.weather[0].main;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 function searchCity(city) {
   let apiKey = "b68e0598b634d70e6e94258486b5b3c9";
@@ -47,16 +51,8 @@ function citySubmit(event) {
   let city = document.querySelector("#chooseAcity").value;
   searchCity(city);
 }
-function showCoords(position) {
-  let apiKey = "b68e0598b634d70e6e94258486b5b3c9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeather);
-}
-function currentCoords(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showCoords);
-}
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", citySubmit);
-let currentButton = document.querySelector(".currentButton");
-currentButton.addEventListener("click", currentCoords);
+let buttonSearch = document.querySelector("button");
+buttonSearch.addEventListener("click", citySubmit);
+searchCity("Kharkiv");

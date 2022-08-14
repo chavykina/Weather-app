@@ -6,9 +6,9 @@ button {
   border: 1px solid black;
   border-radius: 5px;
   transition: all 150ms ease-in-out;
+  cursor: pointer;
 }
 button:hover {
-  cursor: pointer;
   color: aliceblue;
 }
 small {
@@ -34,7 +34,7 @@ small {
 }
 .row {
   display: grid;
-  grid-template-columns: 77px 155px;
+  grid-template-columns: 77px 184px;
   grid-template-rows: 90px;
   align-items: center;
   color: white;
@@ -42,8 +42,8 @@ small {
 .descriptionWeather {
   list-style: none;
   line-height: 1.1;
-  font-size: 16px;
-  padding-inline-start: 49px;
+  font-size: 15px;
+  padding-inline-start: 45px;
   margin: 66px 0px 16px 0px;
 }
 .scale {
@@ -115,19 +115,6 @@ body,
   margin-block-start: -88px;
   margin-inline-start: 71px;
   font-size: 15px;
-}
-.currentButton {
-  color: black;
-  background-color: #9a5a00;
-  font-size: 15px;
-  padding: 2px 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  transition: all 150ms ease-in-out;
-}
-.currentbutton:hover {
-  cursor: pointer;
-  color: black;
 }
 
 #chooseacity {
