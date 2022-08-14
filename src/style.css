@@ -32,6 +32,24 @@ small {
 .header {
   grid-template-columns: 270px 270px;
 }
+.row {
+  display: grid;
+  grid-template-columns: 77px 155px;
+  grid-template-rows: 90px;
+  align-items: center;
+  color: white;
+}
+.descriptionWeather {
+  list-style: none;
+  line-height: 1.1;
+  font-size: 16px;
+  padding-inline-start: 49px;
+  margin: 66px 0px 16px 0px;
+}
+.scale {
+  font-size: 68px;
+  margin-block-start: 41px;
+}
 .footer {
   grid-template-columns: 90px 90px 90px 90px 90px 90px;
   border-top: 1px solid white;
@@ -72,7 +90,7 @@ body,
 .form {
   margin-block-start: 45px;
   margin-block-end: 0px;
-  margin-inline-start: 47px;
+  margin-inline-start: 8px;
   margin-inline-end: 0px;
   line-height: 1.7;
 }
@@ -94,6 +112,8 @@ body,
 .degrees-link {
   color: white;
   position: fixed;
+  margin-block-start: -88px;
+  margin-inline-start: 71px;
   font-size: 15px;
 }
 .currentButton {
