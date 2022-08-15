@@ -76,8 +76,6 @@ function showCelsius(event) {
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", citySubmit);
-let searchBtn = document.querySelector("button");
-searchBtn.addEventListener("click", citySubmit);
 searchCity("Kharkiv");
 let celsiusTemp = null;
 let linkFahrenheit = document.querySelector("#fahrenheit");
