@@ -73,8 +73,8 @@ function displayForecast(response) {
         src="http://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
         }@2x.png"
-        height="25px"
-        width="25px"
+        height="30px"
+        width="33px"
         alt="sun"
       />
       <div class="forecast-degree">
