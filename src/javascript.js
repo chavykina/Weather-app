@@ -45,8 +45,59 @@ function displayWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celsiusTemp = response.data.main.temp;
-  document.querySelector(".scale").innerHTML = Math.round(celsiusTemp);
+  getForecast(response.data.coord);
+}
+function formatForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(".footer");
+  let forecastHtml = `<div class="footer">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `
+      <div class="forecast-area">
+      <div class="forecast-week">
+        
+           ${formatForecast(forecastDay.dt)}
+  
+      </div>
+      <img
+        class="icons"
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        height="25px"
+        width="25px"
+        alt="sun"
+      />
+      <div class="forecast-degree">
+        <span class="forecast-degree-max">${Math.round(
+          forecastDay.temp.max
+        )}° </span>
+        <span class="forecast-degree-min">${Math.round(
+          forecastDay.temp.min
+        )}° </span>
+      </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+function getForecast(coordinates) {
+  let apiKey = "b68e0598b634d70e6e94258486b5b3c9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
 }
 function searchCity(city) {
   let apiKey = "b68e0598b634d70e6e94258486b5b3c9";
@@ -59,26 +110,8 @@ function citySubmit(event) {
   let city = document.querySelector("#chooseAcity").value;
   searchCity(city);
 }
-function showFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let tempElement = document.querySelector(".scale");
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-  linkCelsius.classList.remove("active");
-  linkFahrenheit.classList.add("active");
-}
-function showCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".scale");
-  tempElement.innerHTML = Math.round(celsiusTemp);
-  linkCelsius.classList.add("active");
-  linkFahrenheit.classList.remove("active");
-}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", citySubmit);
 searchCity("Kharkiv");
-let celsiusTemp = null;
-let linkFahrenheit = document.querySelector("#fahrenheit");
-linkFahrenheit.addEventListener("click", showFahrenheit);
-let linkCelsius = document.querySelector("#celsium");
-linkCelsius.addEventListener("click", showCelsius);
+//displayForecast();

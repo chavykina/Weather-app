@@ -48,19 +48,23 @@ button:hover {
   line-height: 1.1;
   font-size: 15px;
   padding-inline-start: 45px;
-  margin: 138px 0px 16px 0px;
+  margin: 138px 0px 16px -4px;
 }
 .scale {
   font-size: 71px;
   margin-block-start: 104px;
 }
 .footer {
-  grid-template-columns: 90px 90px 90px 90px 90px 90px;
-  border-top: 1px solid white;
-  text-align: center;
+  display: grid;
   font-size: 19px;
-  line-height: 1.25;
-  margin-bottom: 13px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  grid-auto-flow: column;
+  grid-gap: -3px;
+  text-align: center;
+}
+.border {
+  border-top: 1px solid white;
 }
 .footer,
 .headerleft,
@@ -104,23 +108,25 @@ body,
 .maindegrees {
   font-size: 67px;
 }
-.footerweekday {
+.forecast-week {
   margin-top: 13px;
+  position: relative;
 }
 .icons {
   margin: 5px 0px -1px 0px;
 }
-.footerdegree {
+.forecast-degree {
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   margin-block-start: 0px;
+  font-size: 15px;
 }
 .degrees-link {
   position: fixed;
-  margin-block-start: -88px;
+  margin-block-start: -91px;
   margin-inline-start: 71px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 #chooseacity {
@@ -135,13 +141,7 @@ body,
   font-size: 15px;
   text-decoration: none;
 }
-.footer-right .active {
-  cursor: default;
-  color: white;
-}
-.footer-right .active:hover {
-  text-decoration: none;
-}
+
 #search-form {
   margin-block-start: 4px;
 }
